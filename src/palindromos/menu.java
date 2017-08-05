@@ -13,6 +13,7 @@ import java.util.Scanner;
  */
 public class menu {
     
+    boolean valor=true;
     int opcion_menu = 0;
     int opcion_usuario= 0;
     String[] usuarios = new String[5];
@@ -86,12 +87,45 @@ public class menu {
             
             
             case 2:
-                System.out.println("escogiste la opcion 2");
-                System.out.println("");
-            
+                
+                int i=0, j;
+                String frase;
+                boolean esPalindromo=true;
+                
+                System.out.println("Introduzca una frase/palabra.");
+                
+                sc.nextLine();
+                frase = sc.nextLine();
+                j=(frase.length()-1);
+                
+                while (i<j & esPalindromo)
+                    if (!Character.isLetter(frase.charAt(i)))
+                        i++;
+                    else
+                        if (!Character.isLetter(frase.charAt(j)))
+                            j--;
+                        else
+                            if (frase.charAt(i) == frase.charAt(j)){
+                                i++;
+                                j--;
+                            }
+                            else
+                                esPalindromo = false;
+                if (i>=j)
+                {
+                    System.out.println("Si es palindromo!!! :D");
+                    System.out.println("");
+                }
+                else
+                {    
+                    System.out.println("No es palíndromo!!! D:");
+                    System.out.println("");
+                }    
             break;  
         }
     }
+    
+    
     
     public void menu_usuarios (int opcion_usuario)
     {
@@ -148,6 +182,7 @@ public class menu {
             break;
         }
     }
+    
     
     
     }
